@@ -1,0 +1,4 @@
+# token domain path name service target-port
+# token test.weepee.io / test static 8080
+# ------------------------------------
+c838ad96-47a8-4260-9d67-df2e644f4f2a test-test3.deploy.alpha.aws.weepee.io / root static 8080

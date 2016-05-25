@@ -3,6 +3,7 @@
 STAMP=$(date)
 echo "[${STAMP}] Copy domains.txt to persistent storage..."
 cp /letsencrypt/domains.txt /data
+cp /letsencrypt/domainsmap.txt /data
 
 STAMP=$(date)
 echo "[${STAMP}] Starting daemon..."
