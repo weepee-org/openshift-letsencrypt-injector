@@ -5,8 +5,8 @@ MAINTAINER Joeri van Dooren <ure@mororless.be>
 ADD scripts/run.sh /scripts/run.sh
 ADD letsencrypt.sh/letsencrypt.sh /letsencrypt/letsencrypt.sh
 ADD letsencrypt.sh/pushroutes.sh /letsencrypt/pushroutes.sh
+ADD letsencrypt.sh/createdomains.sh /letsencrypt/createdomains.sh
 ADD letsencrypt.sh/config /letsencrypt/config
-ADD letsencrypt.sh/domains.txt /letsencrypt/domains.txt
 ADD letsencrypt.sh/domainsmap.txt /letsencrypt/domainsmap.txt
 
 RUN apk --update add curl bash openssl apache2 && rm -f /var/cache/apk/* && \

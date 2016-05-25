@@ -11,5 +11,8 @@ echo "[${STAMP}] Starting daemon..."
 httpd -D FOREGROUND &
 sleep 1s
 cd /letsencrypt
+./createdomains.sh
+echo "[${STAMP}] Create/Update certificates..."
 ./letsencrypt.sh -c
+./pushroutes.sh
 sleep 1d
