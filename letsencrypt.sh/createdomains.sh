@@ -8,7 +8,7 @@ while read options; do
   STAMP=$(date)
   map=($options)
   echo "[${STAMP}] Creating domains.txt..."
-  echo ${map[1]} >> /tmp/dom$$.txt
+  echo ${map[0]} >> /tmp/dom$$.txt
   uniq /tmp/dom$$.txt > /data/domains.txt
 done < /tmp/$$.txt
 exit
