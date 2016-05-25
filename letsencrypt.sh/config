@@ -1,0 +1,6 @@
+#!/bin/bash
+
+WELLKNOWN="/app/.well-known/acme-challenge"
+BASEDIR="/data"
+
+#CONTACT_EMAIL=letsencrypt@alpha.weepee.io
