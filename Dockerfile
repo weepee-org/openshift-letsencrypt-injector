@@ -17,6 +17,7 @@ mkdir /data && chmod -R a+rwx /data && chmod -R a+rx /scripts/*.sh && chmod -R a
 
 # Apache config
 ADD apache2/httpd.conf /etc/apache2/httpd.conf
+ADD apache2/index.html /app/.well-known/acme-challenge/index.html
 
 # Exposed Port
 EXPOSE 8080

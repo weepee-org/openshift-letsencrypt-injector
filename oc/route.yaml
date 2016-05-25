@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Route
+metadata:
+  creationTimestamp: 2016-05-25T10:58:44Z
+  labels:
+    app: openshift-letsencrypt-injector
+  name: root-ssl
+  namespace: moreorless-site
+  resourceVersion: "250408"
+  selfLink: /oapi/v1/namespaces/moreorless-site/routes/root-ssl
+  uid: a624ca05-2267-11e6-9e70-06b0b59df555
+spec:
+  host: moreorless.deploy.alpha.aws.weepee.io
+  path: /.well-known/acme-challenge
+  port:
+    targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: openshift-letsencrypt-in
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: 2016-05-25T10:58:44Z
+      status: "True"
+      type: Admitted
+    host: moreorless.deploy.alpha.aws.weepee.io
+    routerName: router
