@@ -11,7 +11,7 @@ while read options; do
   STAMP=$(date)
   map=($options)
   echo "[${STAMP}] Pushing route ${map[0]}${map[1]} to $OPENSHIFT_BUILD_NAMESPACE/${map[2]}..."
-  echo curl \
+  curl \
     -F "domain=${map[0]}" \
     -F "path=${map[1]}" \
     -F "route=${map[2]}" \
