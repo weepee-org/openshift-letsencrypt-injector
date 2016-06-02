@@ -20,6 +20,6 @@ while read options; do
     -F "cert=@/data/certs/${map[0]}/cert.pem" \
     -F "privkey=@/data/certs/${map[0]}/privkey.pem" \
     -F "fullchain=@/data/certs/${map[0]}/fullchain.pem" \
-    http://$OPENSHIFT_MASTER_INTERNAL:8080/$WEEPEE_TOKEN/updatecerts/$OPENSHIFT_BUILD_NAMESPACE
+    http://$OPENSHIFT_MASTER_INTERNAL:3000/$WEEPEE_TOKEN/updatecerts/$OPENSHIFT_BUILD_NAMESPACE
 done < /tmp/$$.txt
 exit
