@@ -2,7 +2,7 @@
 
 # these need to be in the env of the pod
 OPENSHIFT_MASTER_INTERNAL="172.31.33.163"
-WEEPEE_TOKEN=c838ad96-47a8-4260-9d67-df2e644f4f2a
+WEEPEE_TOKEN=$(</data/token)
 
 DOMAINSMAP=/data/domainsmap.txt
 grep -v '^#' $DOMAINSMAP > /tmp/$$.txt
