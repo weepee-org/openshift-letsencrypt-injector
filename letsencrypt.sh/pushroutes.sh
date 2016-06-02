@@ -11,7 +11,7 @@ while read options; do
   STAMP=$(date)
   map=($options)
   echo "[${STAMP}] Pushing route ${map[0]}${map[1]} to $OPENSHIFT_BUILD_NAMESPACE/${map[2]}..."
-  curl \
+  curl -s \
     -F "domain=${map[0]}" \
     -F "path=${map[1]}" \
     -F "route=${map[2]}" \
@@ -21,5 +21,7 @@ while read options; do
     -F "privkey=@/data/certs/${map[0]}/privkey.pem" \
     -F "fullchain=@/data/certs/${map[0]}/fullchain.pem" \
     http://$OPENSHIFT_MASTER_INTERNAL:3000/$WEEPEE_TOKEN/updatecerts/$OPENSHIFT_BUILD_NAMESPACE
+    echo
+    echo
 done < /tmp/$$.txt
 exit

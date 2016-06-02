@@ -1,7 +1,7 @@
 #!/bin/sh
 
 STAMP=$(date)
-echo "[${STAMP}] Copy domains.txt to persistent storage..."
+echo "[${STAMP}] Copy domains.txt / token.txt to persistent storage..."
 cp /letsencrypt/domainsmap.txt /data
 cp /letsencrypt/token.txt /data
 
