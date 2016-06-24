@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # these need to be in the env of the pod
 #OPENSHIFT_MASTER_INTERNAL="172.31.33.163"
@@ -13,7 +13,7 @@ grep -v '^#' $DOMAINSMAP > /tmp/$$.txt
 while read options; do
   STAMP=$(date)
   map=($options)
-  echo "[${STAMP}] Pushing route ${map[0]}${map[1]} to $OPENSHIFT_BUILD_NAMESPACE/${map[2]}..."
+  echo "+++ [${STAMP}] Pushing route ${map[0]}${map[1]} to $OPENSHIFT_BUILD_NAMESPACE/${map[2]}..."
   curl -s \
     -F "domain=${map[0]}" \
     -F "path=${map[1]}" \
@@ -24,8 +24,10 @@ while read options; do
     -F "privkey=@/data/certs/${map[0]}/privkey.pem" \
     -F "fullchain=@/data/certs/${map[0]}/fullchain.pem" \
     http://$OPENSHIFT_MASTER_INTERNAL:3000/$WEEPEE_TOKEN/updatecerts/$OPENSHIFT_BUILD_NAMESPACE
-    echo
+    echo "+++ Finished pushing route ${map[0]}${map[1]} to $OPENSHIFT_BUILD_NAMESPACE/${map[2]}"
     if [ ${map[1]} = "/" ]; then
+      STAMP=$(date)
+      echo "+++ [${STAMP}] Pushing callback route ${map[0]}${lepath} to $OPENSHIFT_BUILD_NAMESPACE/${map[2]}..."
       curl -s \
         -F "domain=${map[0]}" \
         -F "path=${lepath}" \
@@ -36,6 +38,7 @@ while read options; do
         -F "privkey=@/data/certs/${map[0]}/privkey.pem" \
         -F "fullchain=@/data/certs/${map[0]}/fullchain.pem" \
         http://$OPENSHIFT_MASTER_INTERNAL:3000/$WEEPEE_TOKEN/updatecerts/$OPENSHIFT_BUILD_NAMESPACE
+        echo "+++ [${STAMP}] Finished pushing callback route ${map[0]}${lepath} to $OPENSHIFT_BUILD_NAMESPACE/${map[2]}..."
     fi
 done < /tmp/$$.txt
 exit
