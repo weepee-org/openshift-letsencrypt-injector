@@ -29,8 +29,8 @@ while read options; do
       curl -s \
         -F "domain=${map[0]}" \
         -F "path=${lepath}" \
-        -F "route=${map[2]}" \
-        -F "service=${map[3]}" \
+        -F "route=${map[2]}-le" \
+        -F "service=letsencrypt" \
         -F "port=${map[4]}" \
         -F "cert=@/data/certs/${map[0]}/cert.pem" \
         -F "privkey=@/data/certs/${map[0]}/privkey.pem" \
