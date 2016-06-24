@@ -15,4 +15,5 @@ cd /letsencrypt
 echo "[${STAMP}] Create/Update certificates..."
 ./letsencrypt.sh -c
 ./pushroutes.sh
-sleep 15d
+echo "[${STAMP}] Bye Bye..."
+sleep 1d
