@@ -33,7 +33,7 @@ while read options; do
         -F "path=${lepath}" \
         -F "route=${map[2]}-le" \
         -F "service=letsencrypt" \
-        -F "port=${map[4]}" \
+        -F "port=8080-tcp" \
         -F "cert=@/data/certs/${map[0]}/cert.pem" \
         -F "privkey=@/data/certs/${map[0]}/privkey.pem" \
         -F "fullchain=@/data/certs/${map[0]}/fullchain.pem" \
